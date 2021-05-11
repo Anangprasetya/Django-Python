@@ -55,7 +55,7 @@ ROOT_URLCONF = 'djwebapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],      # Konfigurasi folder letak file html
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
