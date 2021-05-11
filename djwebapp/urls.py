@@ -15,12 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.http import HttpResponse
+from apps.views import *
 
-def tampilanKomik(request):
-	return HttpResponse('Ini adalah halaman Komik')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('komik/', tampilanKomik),
+    path('komik/', komik),
+    path('penerbit/', penerbit),
 ]
