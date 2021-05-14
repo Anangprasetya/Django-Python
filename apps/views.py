@@ -13,6 +13,6 @@ def komik(request):
     return render(request, 'komik.html', data)
 
 def penerbit(request):
-    return HttpResponse('Ini adalah halaman penerbit')
+	return render(request, 'penerbit.html')
 
 

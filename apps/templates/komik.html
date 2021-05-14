@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    
+
+{{judul | upper}}
+{{penulis}}
+<h1>Ini adalah halaman Komik</h1>
+<ul>
+{% for x in komik %}
+    <li>{{x}}</li>
+{% endfor %}
+</ul>
+
+{% endblock content %}
