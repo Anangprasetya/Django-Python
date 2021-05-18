@@ -1,18 +1,20 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from apps.models import Komik
 
 
 def komik(request):
-    judul = "Belajar Django"
-    komik = ["mereka", "dia", "akan", "segera"]
-    data = {
-        'judul' : judul,
-        'penulis' : 'Anang Nur Prasetya',
-        'komik' : komik,
-    }
-    return render(request, 'komik.html', data)
+	ambilKomik = Komik.objects.all()
+	data = {
+		'judul' : 'Komik | Anang',
+		'komik' : ambilKomik,
+	}
+	return render(request, 'komik.html', data)
 
 def penerbit(request):
-	return render(request, 'penerbit.html')
+	data = {
+		'judul' : 'Penerbit'
+	}
+	return render(request, 'penerbit.html', data)
 
 
