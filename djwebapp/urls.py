@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('komik/', komik),
     path('penerbit/', penerbit),
+    path('tambah-komik/', tambah_komik),
 ]
