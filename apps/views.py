@@ -20,11 +20,22 @@ def penerbit(request):
 
 
 def tambah_komik(request):
-	form = KomikForm();
-	data = {
-		'judul' : 'Tambah Data Komik',
-		'form' : form,
-	}
+	if request.POST:
+		form = KomikForm(request.POST)
+		if form.is_valid():
+			form.save()
+			form = KomikForm()
+			data = {
+				'judul' : 'Tambah Data Komik',
+				'form' : form,
+				'pesan' : "Data Berhasil Disimpan",
+			}
+	else:
+		form = KomikForm();
+		data = {
+			'judul' : 'Tambah Data Komik',
+			'form' : form,
+		}
 
 	return render(request, 'tambah-buku.html', data)
 

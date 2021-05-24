@@ -4,7 +4,14 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-5">
-			<form action="" method="POST">
+			{% if pesan %}
+				<div class="alert alert-success" role="alert">
+					{{pesan}}
+				</div>
+			{% endif %}
+			<form action="/tambah-komik/" method="POST">
+				{% csrf_token %}
+
 				{{form.as_p}}
 
 				<button class="btn btn-primary">Tambah Buku</button>
