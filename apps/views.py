@@ -5,7 +5,10 @@ from apps.forms import KomikForm
 
 
 def komik(request):
-	ambilKomik = Komik.objects.all()
+	# ambilKomik = Komik.objects.all()
+	# filter dan join, limit
+	
+	ambilKomik = Komik.objects.filter(id_negara__nama = 'Jepang')[:2]
 	data = {
 		'judul' : 'Komik | Anang',
 		'komik' : ambilKomik,

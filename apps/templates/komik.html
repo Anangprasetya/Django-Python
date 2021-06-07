@@ -1,21 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
 	<table style="border : 1px solid red;">
-		<tr>
-			<th>Nama</th>
-			<th>Penerbit</th>
-			<th>Penulis</th>
-			<th>Negara</th>
-			<th>Jumlah</th>
-		</tr>
-		{% for b in komik %}
-			<tr>
-				<td> {{b.judul}} </td>
-				<td> {{b.penerbit}} </td>
-				<td> {{b.penulis}} </td>
-				<td> {{b.id_negara}} </td>
-				<td> {{b.jumlah}} </td>
-			</tr>
-		{% endfor %}
+		
+		
 	</table>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10">
+				<table class="table">
+				  <thead class="table-dark">
+				    <tr>
+						<th>Nama</th>
+						<th>Penerbit</th>
+						<th>Penulis</th>
+						<th>Negara</th>
+						<th>Jumlah</th>
+					</tr>
+				  </thead>
+				  <tbody>
+				    {% for b in komik %}
+						<tr>
+							<td> {{b.judul}} </td>
+							<td> {{b.penerbit}} </td>
+							<td> {{b.penulis}} </td>
+							<td> {{b.id_negara}} </td>
+							<td> {{b.jumlah}} </td>
+						</tr>
+					{% endfor %}
+				  </tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
 {% endblock content %}
