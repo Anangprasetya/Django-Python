@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from apps.models import Komik
 from apps.forms import KomikForm
+from django.contrib import messages
 
 
 def ubah_komik(request, id_komik):
@@ -10,6 +11,7 @@ def ubah_komik(request, id_komik):
 		form = KomikForm(request.POST, instance = komik)
 		if form.is_valid():
 			form.save()
+			messages.success(request, "Data Berhasil Di Perbarui")
 			return redirect('ubah_komik', id_komik = id_komik)
 	else:
 		form = KomikForm(instance = komik)

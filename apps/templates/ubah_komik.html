@@ -4,11 +4,13 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-6">
-			{% if pesan %}
-				<div class="alert alert-success" role="alert">
-					{{pesan}}
-				</div>
-			{% endif %}
+			{% for x in messages %}
+				{% if x %}
+					<div class="alert alert-success" role="alert">
+						{{x}}
+					</div>
+				{% endif %}
+			{% endfor %}
 			<h3>Ubah : {{ komik.judul}}</h3>
 			{# <form action="/buku/ubah/{{buku.id}}" method="POST"> #}
 			<form action="{% url 'ubah_komik' komik.id %}" method="POST">
