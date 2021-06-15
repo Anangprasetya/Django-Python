@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			{% if pesan %}
+				<div class="alert alert-success" role="alert">
+					{{pesan}}
+				</div>
+			{% endif %}
+			<h3>Ubah : {{ komik.judul}}</h3>
+			{# <form action="/buku/ubah/{{buku.id}}" method="POST"> #}
+			<form action="{% url 'ubah_komik' komik.id %}" method="POST">
+
+				{% csrf_token %}
+
+				{{form.as_p}}
+
+				<button class="btn btn-primary">Simpan Buku</button>
+				<a href="/komik" class="btn btn-danger">Kembali</a>
+			</form>
+		</div>
+	</div>
+</div>
+	
+
+{% endblock content %}

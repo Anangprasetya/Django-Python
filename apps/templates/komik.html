@@ -21,7 +21,8 @@
 				  <tbody>
 				    {% for b in komik %}
 						<tr>
-							<td> {{b.judul}} </td>
+							{# <td> {{b.judul}} </td> #}
+							<td><a href=" {%url 'ubah_komik' b.id %}">{{b.judul}}</a></td>
 							<td> {{b.penerbit}} </td>
 							<td> {{b.penulis}} </td>
 							<td> {{b.id_negara}} </td>

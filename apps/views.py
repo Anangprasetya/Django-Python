@@ -1,14 +1,33 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from apps.models import Komik
 from apps.forms import KomikForm
 
 
+def ubah_komik(request, id_komik):
+	komik = Komik.objects.get(id = id_komik)
+	if request.POST:
+		form = KomikForm(request.POST, instance = komik)
+		if form.is_valid():
+			form.save()
+			return redirect('ubah_komik', id_komik = id_komik)
+	else:
+		form = KomikForm(instance = komik)
+		data = {
+			'judul' : 'Ubah Data Komik',
+			'form' : form,
+			'komik' : komik
+		}
+
+		return render(request, 'ubah_komik.html', data)
+
+
+
 def komik(request):
-	# ambilKomik = Komik.objects.all()
+	ambilKomik = Komik.objects.all()
 	# filter dan join, limit
 	
-	ambilKomik = Komik.objects.filter(id_negara__nama = 'Jepang')[:2]
+	# ambilKomik = Komik.objects.filter(id_negara__nama = 'Jepang')[:2]
 	data = {
 		'judul' : 'Komik | Anang',
 		'komik' : ambilKomik,

@@ -20,7 +20,8 @@ from apps.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('komik/', komik),
+    path('komik/', komik, name = 'komik'),
     path('penerbit/', penerbit),
     path('tambah-komik/', tambah_komik),
+    path('komik/ubah/<int:id_komik>', ubah_komik, name = 'ubah_komik')
 ]
