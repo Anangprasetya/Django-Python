@@ -23,5 +23,6 @@ urlpatterns = [
     path('komik/', komik, name = 'komik'),
     path('penerbit/', penerbit),
     path('tambah-komik/', tambah_komik, name = 'tambah_komik'),
-    path('komik/ubah/<int:id_komik>', ubah_komik, name = 'ubah_komik')
+    path('komik/ubah/<int:id_komik>', ubah_komik, name = 'ubah_komik'),
+    path('komik/hapus/<int:id_komik>', hapus_komik, name='hapus_komik')
 ]

@@ -5,6 +5,13 @@ from apps.forms import KomikForm
 from django.contrib import messages
 
 
+def hapus_komik(request, id_komik):
+	komik = Komik.objects.filter(id=id_komik)
+	komik.delete()
+
+	return redirect('komik')
+
+
 def ubah_komik(request, id_komik):
 	komik = Komik.objects.get(id = id_komik)
 	if request.POST:
