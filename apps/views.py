@@ -8,7 +8,7 @@ from django.contrib import messages
 def hapus_komik(request, id_komik):
 	komik = Komik.objects.filter(id=id_komik)
 	komik.delete()
-
+	messages.success(request, "Data berhasil dihapus")
 	return redirect('komik')
 
 
