@@ -13,5 +13,5 @@ urlpatterns = [
     path('komik/ubah/<int:id_komik>', ubah_komik, name = 'ubah_komik'),
     path('komik/hapus/<int:id_komik>', hapus_komik, name='hapus_komik'),
     path('masuk/', LoginView.as_view(), name='masuk'),
-    path('keluar/', LogoutView.as_view(), name='keluar'),
+    path('keluar/', LogoutView.as_view(next_page='masuk'), name='keluar'),
 ]
