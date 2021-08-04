@@ -3,8 +3,10 @@ from django.http import HttpResponse
 from apps.models import Komik
 from apps.forms import KomikForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.conf import settings
 
-
+@login_required(login_url=settings.LOGIN_URL)
 def hapus_komik(request, id_komik):
 	komik = Komik.objects.filter(id=id_komik)
 	komik.delete()
@@ -12,6 +14,7 @@ def hapus_komik(request, id_komik):
 	return redirect('komik')
 
 
+@login_required(login_url=settings.LOGIN_URL)
 def ubah_komik(request, id_komik):
 	komik = Komik.objects.get(id = id_komik)
 	if request.POST:
@@ -31,7 +34,7 @@ def ubah_komik(request, id_komik):
 		return render(request, 'ubah_komik.html', data)
 
 
-
+@login_required(login_url=settings.LOGIN_URL)
 def komik(request):
 	ambilKomik = Komik.objects.all()
 	# filter dan join, limit
@@ -43,13 +46,14 @@ def komik(request):
 	}
 	return render(request, 'komik.html', data)
 
+@login_required(login_url=settings.LOGIN_URL)
 def penerbit(request):
 	data = {
 		'judul' : 'Penerbit'
 	}
 	return render(request, 'penerbit.html', data)
 
-
+@login_required(login_url=settings.LOGIN_URL)
 def tambah_komik(request):
 	if request.POST:
 		form = KomikForm(request.POST)
