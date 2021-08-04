@@ -1,1 +1,6 @@
-<center><h1>KOMIK</h1></center>
+<center>
+    <h1>KOMIK</h1>
+    {% if user.is_authenticated %}
+    <p>{{ user }} | <a href="{% url 'keluar' %}">keluar</a></p>
+    {% endif %}
+</center>

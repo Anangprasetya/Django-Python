@@ -2,6 +2,9 @@
 
 
 {% block content %}
+{% if user.is_authenticated %}
+<meta http-equiv="refresh" content="0; url={% url 'komik' %}">
+{% else %}
 <div class="container">
     <div class="row">
         <div class="col-md-4">
@@ -13,7 +16,7 @@
                     <form method="POST">
                         {% csrf_token %}
                         {{ form.as_p }}
-
+                        
                         <button class="btn btn-primary">Masuk</button>
                     </form>
                 </div>
@@ -21,5 +24,6 @@
         </div>
     </div>
 </div>
+{% endif %}
 {% endblock content %}
     
