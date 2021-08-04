@@ -14,4 +14,5 @@ urlpatterns = [
     path('komik/hapus/<int:id_komik>', hapus_komik, name='hapus_komik'),
     path('masuk/', LoginView.as_view(), name='masuk'),
     path('keluar/', LogoutView.as_view(next_page='masuk'), name='keluar'),
+    path('signup/', signup, name='signup'),
 ]
