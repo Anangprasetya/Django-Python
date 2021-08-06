@@ -67,6 +67,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                'django.template.context_processors.media',  #konfigurasi media
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -139,6 +140,8 @@ STATICFILES_DIRS = [
 
 LOGIN_REDIRECT_URL = 'komik'
 LOGIN_URL = 'masuk'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = 'media'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 

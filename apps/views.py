@@ -41,7 +41,7 @@ def hapus_komik(request, id_komik):
 def ubah_komik(request, id_komik):
 	komik = Komik.objects.get(id = id_komik)
 	if request.POST:
-		form = KomikForm(request.POST, instance = komik)
+		form = KomikForm(request.POST, request.FILES, instance = komik)
 		if form.is_valid():
 			form.save()
 			messages.success(request, "Data Berhasil Di Perbarui")
@@ -79,7 +79,7 @@ def penerbit(request):
 @login_required(login_url=settings.LOGIN_URL)
 def tambah_komik(request):
 	if request.POST:
-		form = KomikForm(request.POST)
+		form = KomikForm(request.POST, request.FILES)
 		if form.is_valid():
 			form.save()
 			form = KomikForm()

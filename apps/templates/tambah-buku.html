@@ -9,7 +9,7 @@
 					{{pesan}}
 				</div>
 			{% endif %}
-			<form action="/tambah-komik/" method="POST">
+			<form action="/tambah-komik/" method="POST" enctype="multipart/form-data">
 				{% csrf_token %}
 
 				{{form.as_p}}

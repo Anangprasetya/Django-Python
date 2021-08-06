@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from apps.views import *
 from django.contrib.auth.views import LoginView, LogoutView
+from django.conf.urls.static import static
 
 
 
@@ -15,4 +16,4 @@ urlpatterns = [
     path('masuk/', LoginView.as_view(), name='masuk'),
     path('keluar/', LogoutView.as_view(next_page='masuk'), name='keluar'),
     path('signup/', signup, name='signup'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

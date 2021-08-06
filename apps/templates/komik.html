@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 	<table style="border : 1px solid red;">
-		
-		
 	</table>
 
 	<div class="container">
@@ -26,6 +24,7 @@
 				<table class="table">
 				  <thead class="table-dark">
 				    <tr>
+						<th>Cover</th>
 						<th>Nama</th>
 						<th>Penerbit</th>
 						<th>Penulis</th>
@@ -38,6 +37,11 @@
 				    {% for b in komik %}
 						<tr>
 							{# <td> {{b.judul}} </td> #}
+							<td>
+							{% if b.cover %}
+								<img src="{{ b.cover.url }}" alt="" width="100px">
+							{% endif %}
+								</td>
 							<td><a href=" {%url 'ubah_komik' b.id %}">{{b.judul}}</a></td>
 							<td> {{b.penerbit}} </td>
 							<td> {{b.penulis}} </td>

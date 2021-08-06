@@ -13,7 +13,7 @@
 			{% endfor %}
 			<h3>Ubah : {{ komik.judul}}</h3>
 			{# <form action="/buku/ubah/{{buku.id}}" method="POST"> #}
-			<form action="{% url 'ubah_komik' komik.id %}" method="POST">
+			<form action="{% url 'ubah_komik' komik.id %}" method="POST"  enctype="multipart/form-data">
 
 				{% csrf_token %}
 
