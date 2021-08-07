@@ -6,7 +6,15 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.contrib.auth.forms import UserCreationForm
+from .resource import KomikResource
 
+
+def export_xls(request):
+	komik = KomikResource()
+	dataset = komik.export()
+	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
+	response['content-Disposition'] = 'attachment; filename=komik.xls'
+	return response
 
 @login_required(login_url=settings.LOGIN_URL)
 def signup(request):

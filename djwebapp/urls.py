@@ -16,4 +16,5 @@ urlpatterns = [
     path('masuk/', LoginView.as_view(), name='masuk'),
     path('keluar/', LogoutView.as_view(next_page='masuk'), name='keluar'),
     path('signup/', signup, name='signup'),
+    path('export/', export_xls, name='export_xls'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
