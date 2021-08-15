@@ -67,7 +67,12 @@ def ubah_komik(request, id_komik):
 
 @login_required(login_url=settings.LOGIN_URL)
 def komik(request):
-	ambilKomik = Komik.objects.all()
+	if request.POST:
+		kunci = request.POST['cari']
+		ambilKomik = Komik.objects.filter(judul__contains=kunci)
+		print("data : ", ambilKomik)
+	else:
+		ambilKomik = Komik.objects.all()
 	# filter dan join, limit
 	
 	# ambilKomik = Komik.objects.filter(id_negara__nama = 'Jepang')[:2]
